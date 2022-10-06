@@ -1,0 +1,95 @@
+/********* 3.0 Header Section************/
+.header {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+    /* overflow: hidden; */
+    /*to solve float problem*/
+}
+
+.header .logo {
+    width: 40%;
+    float: left;
+}
+
+.header .logo img {
+    width: 20%;
+    margin-top: 15px;
+}
+
+.header .nav {
+    width: 60%;
+    float: left;
+    list-style: none;
+    text-align: right;
+}
+
+.header .nav>li {
+    display: inline-block;
+    /*يجوا جنب بعض وادي طول وعرض*/
+    text-align: right;
+}
+
+.header .nav>li>a {
+    color: white;
+    font-size: 15px;
+    display: block;
+    /*هتحول اللينك لعنصر block*/
+    padding: 30px 15px;
+}
+
+.header .nav>li>a:after,
+.header .nav>li>a.active:after {
+    /*جروبنج عشان منكررش الكود*/
+    content: '';
+    display: block;
+    /*after and before are inline*/
+    height: 3px;
+    margin-top: 2px;
+    background-color: var(--maincolor);
+    transition: width 0.5s;
+    /*دي بتكون على العنصر اللي هيتأثر فلازم نحطها هنا في ال after*/
+}
+
+.header .nav>li>a.active:after {
+    width: 100%;
+}
+
+.header .nav>li>a:after {
+    width: 0;
+}
+
+.header .nav>li>a:hover:after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: var(--maincolor);
+    width: 150px;
+    text-align: center;
+    left: -50%;
+    top: 70%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+}
+
+.dropdown-menu a {
+    color: white;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
